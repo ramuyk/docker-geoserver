@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  geoserver:
+    image: docker.osgeo.org/geoserver:2.25.0
+    container_name: geoserver
+    ports:
+      - "10001:8080"
+    volumes:
+      - geoserver-data:/opt/geoserver_data
+    environment:
+      - INSTALL_EXTENSIONS=true
+      - STABLE_EXTENSIONS=vectortiles,gdal,css
+      - ENABLE_JSONP=true
+      - CORS_ENABLED=true
+      - CORS_ALLOWED_ORIGINS=*
+      - CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,HEAD,OPTIONS
+      - CORS_ALLOWED_HEADERS=Origin,X-Requested-With,Content-Type,Accept,Authorization
+      - CORS_ALLOW_CREDENTIALS=false  
+    restart: always
+
+volumes:
+  geoserver-data:
