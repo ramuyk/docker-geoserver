@@ -5,7 +5,7 @@ services:
     image: docker.osgeo.org/geoserver:2.25.0
     container_name: geoserver
     ports:
-      - "10001:8080"
+      - "127.0.0.1:10001:8080"
     volumes:
       - geoserver-data:/opt/geoserver_data
     environment:
