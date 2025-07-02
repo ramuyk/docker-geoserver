@@ -17,11 +17,8 @@ services:
       - CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,HEAD,OPTIONS
       - CORS_ALLOWED_HEADERS=Origin,X-Requested-With,Content-Type,Accept,Authorization
       - CORS_ALLOW_CREDENTIALS=false  
-    deploy:
-      resources:
-        limits:
-          memory: 8G
-          cpus: '4'
+    cpus: 4
+    mem_limit: 8g
     restart: always
 
 volumes:
