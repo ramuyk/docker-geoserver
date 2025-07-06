@@ -9,6 +9,7 @@ services:
     volumes:
       - geoserver-data:/opt/geoserver_data
     environment:
+      - EXTRA_JAVA_OPTS=-Xms2G -Xmx6G -XX:+UseG1GC
       - INSTALL_EXTENSIONS=true
       - STABLE_EXTENSIONS=vectortiles,gdal,css,gwc-s3
       - ENABLE_JSONP=true
